@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clase 3 Cambalache</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--CSS-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""/>
+        <link rel="stylesheet" href="leaflet-sidebar.min.css"/>
+
+        <!--Leaflet-->
+        <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
+        <script src="https://unpkg.com/leaflet-label/dist/leaflet.label.js"></script>
+
+        <!-- DATOS GEOJSON-->
+        <script src="centroides.geojson"></script>
+        
+        <!-- ESTILO CSS-->
+        <style type="text/css">
+            body {
+                padding: 0;
+                margin: 0;
+            }
+        
+            html, body, #mapa {
+                height: 100%;
+                font-family: verdana;
+            }
+            #title {
+                position: fixed;
+                margin-top: 0;
+                top: 10px;
+                left: 55px;
+                font-size: 2em;
+                font-family: "Lora", serif;
+                letter-spacing: .04em;
+                padding: 10px 15px;
+                background-color: rgba(244, 83, 9, 0.5);
+                border: 1px solid grey;
+                border-radius: 3px;
+                z-index: 800;
+            }
+
+
+            /* ---Esilo Pop Up content Argnentina  */
+    
+            .leaflet-popup-content {
+                color: #f7f3f3; /* Color del texto */
+                font-size: 14px; /* Tamaño del texto */
+            }
+
+            /* Estilo para el botón de cierre en la ventana emergente */
+            .leaflet-popup-close-button {
+            color: #fff; /* Color del botón de cierre */
+            font-size: 14px; /* Tamaño del texto del botón de cierre */
+            }
+
+            /* Estilo para el fondo de la ventana emergente */
+            .leaflet-popup-content-wrapper {
+            background-color: #67adf3; /* Color de fondo */
+            border: 2px solid #0c0c0c; /* Borde */
+            border-radius: 8px; /* Bordes redondeados */
+            }
+            </style>
+    </head>
+
+    <body>
+        <h1 id="title">SCANVISOR</h1>
+        <div id="mapa"></div>
+            <script type="text/javascript">
+            // Seccion Estilos
+            
+                var osm = new L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 18,
+                    attribution: 'Powered by SCANTERRA'
+                    }
+                );
+
+                var satellite = new L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                    maxZoom: 18,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                });
+
+                var carto = new L.tileLayer('http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
+                    maxZomm: 25,
+                    attribution: '&copy; CartoDB, Mapa por <a href="http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png">CartoDB</a>'
+                });
+
+                var baseLayers = {
+                    "OSM": osm,
+                    "satellite": satellite,
+                    "carto": carto,
+                };
+
+                var map = L.map('mapa', {
+                    center: ["-34.603063", "-58.591857"],
+                    zoom: 6,
+                    layers: [osm]
+                });
+                
+                L.control.layers(baseLayers).addTo(map);
+
+                function estilopersonalizado(feature) {
+                    return{
+                        fillColor: "#ff7800",
+                        weight: 2,
+                        opacity: 1,
+                        color: 'white',
+                        dashArray: '3',
+                        fillOpacity: 0.7
+                    };
+                }
+
+                function onEachFeature(feature, layer) {
+                    var popupContent = 'Campo: ' + feature.properties.Name + "<br/>Area: " + feature.properties.Area +"ha";
+                    layer.bindPopup(popupContent);
+                    }  
+
+                var capa_centroides =L.geoJSON(centroides,{
+                    onEachFeature: onEachFeature
+                }).addTo(map);
+
+                // Agregar escala
+                L.control.scale({
+                    imperial: false // Desactiva la escala en millas
+                }).addTo(map);
+            </script>
+    </body>
+</html>

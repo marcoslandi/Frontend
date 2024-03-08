@@ -1,0 +1,20 @@
+var centroides = {
+"type": "FeatureCollection",
+"name": "centroides",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "alf_19231_cop", "Area": 16.8, "Puntos": 50 }, "geometry": { "type": "Point", "coordinates": [ -53.714599673582001, -33.565675703975721 ] } },
+{ "type": "Feature", "properties": { "Name": "oli_inia_sam", "Area": 40.0, "Puntos": 120 }, "geometry": { "type": "Point", "coordinates": [ -53.611860019947294, -33.361190126630476 ] } },
+{ "type": "Feature", "properties": { "Name": "leo_522_sam", "Area": 12.2, "Puntos": 37 }, "geometry": { "type": "Point", "coordinates": [ -53.603018868848771, -33.370727893678215 ] } },
+{ "type": "Feature", "properties": { "Name": "fer_522_sam", "Area": 11.8, "Puntos": 35 }, "geometry": { "type": "Point", "coordinates": [ -55.166737978222372, -31.850226434119854 ] } },
+{ "type": "Feature", "properties": { "Name": "alf_nvo_cop", "Area": 2.9, "Puntos": 9 }, "geometry": { "type": "Point", "coordinates": [ -53.712349946802078, -33.565392765809094 ] } },
+{ "type": "Feature", "properties": { "Name": "gs3_522_sam", "Area": 20.1, "Puntos": 60 }, "geometry": { "type": "Point", "coordinates": [ -53.58886027857708, -32.859322932385552 ] } },
+{ "type": "Feature", "properties": { "Name": "emi_522_sam", "Area": 19.9, "Puntos": 60 }, "geometry": { "type": "Point", "coordinates": [ -53.456849708169635, -32.653961794158498 ] } },
+{ "type": "Feature", "properties": { "Name": "gs3_mer_sam", "Area": 20.1, "Puntos": 60 }, "geometry": { "type": "Point", "coordinates": [ -53.59742770412322, -32.858443796591757 ] } },
+{ "type": "Feature", "properties": { "Name": "emi_rte_sam", "Area": 5.1, "Puntos": 15 }, "geometry": { "type": "Point", "coordinates": [ -53.459343794588918, -32.655970714195725 ] } },
+{ "type": "Feature", "properties": { "Name": "fer_mer_sam", "Area": 5.4, "Puntos": 16 }, "geometry": { "type": "Point", "coordinates": [ -55.166762997376907, -31.852730294225694 ] } },
+{ "type": "Feature", "properties": { "Name": "zor_19231_sam", "Area": 27.8, "Puntos": 83 }, "geometry": { "type": "Point", "coordinates": [ -53.81471642645279, -32.908011944148029 ] } },
+{ "type": "Feature", "properties": { "Name": "alf_1294_cop", "Area": 2.6, "Puntos": 8 }, "geometry": { "type": "Point", "coordinates": [ -53.718870460532422, -33.567156787464953 ] } },
+{ "type": "Feature", "properties": { "Name": "zor_gur_sam", "Area": 18.0, "Puntos": 54 }, "geometry": { "type": "Point", "coordinates": [ -53.817213209822945, -32.929372948161408 ] } }
+]
+}

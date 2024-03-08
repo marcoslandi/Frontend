@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Titutlo-->
+    <title>ScanVisor | El geoportal del agro</title>
+    <!--Favicon-->
+    <link rel="icon" type="image/x-icon" href="Imagenes/icono.svg">
+
+    <!-- BootStrap-->
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+	
+	<!-- JS LEAFLETT -->
+	<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+   
+   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            
+            <!--Columna Inputs-->
+            <div id="Inputs" class="col-3 full-height bg-light">
+                <div class="position-sticky pt-3 sidebar-sticky">
+                    <div class="container-fluid">
+                        
+                        <h2>Generador de Estadísticas</h2>
+                        <!-- Seccion de Botones Barra lateral-->
+                        <div class="container">
+                            <div class="row border">
+                                <div class="col">
+                                    <div id="campos", class="select-container">
+                                        <!-- Contenido de la primera fila -->
+                                        <p>Seleccione un campo:
+                                            <select>
+                                                <option value="Campo 1">Campo 1</option>
+                                                <option value="Campo 2">Campo 2</option>
+                                                <option value="Campo 3">Campo 3</option>
+                                            </select>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Boton de Graficar-->
+                        <div class="row border">
+                            <div class="col">
+                                
+                                <div class="bg-gray p-8">
+                                    <!-- Contenido de la segunda fila -->
+                                    <p>
+                                        <button class="btn btn-primary">Graficar</button>
+                                    </p>
+                                </div>
+                            </div>    
+                        </div>
+
+                        <!-- Contenido de la tercera fila -->
+                        <div class="row border">
+                            <div class="col">
+                                <!-- Boton de Graficar-->
+                                <div class="bg-gray p-8">
+                                    
+                                    <p>
+                                        <button class="btn btn-primary">Mostrar Sitios de Muestreo</button>
+                                    </p>
+                                </div>
+                            </div>    
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+
+                
+            <!--Columna del visor-->
+            <div id="mapa" class="col-6 border full-height bg-light">
+                <div class="container-fluid">
+                    <div id="mapa" style="width:100%;height:100%;"></div>
+                </div>
+            </div>
+
+            <!--Columna de Resultados-->
+            <div id="Resultados" class="col-3 border full-height bg-light">
+                <div class="position-sticky pt-3 sidebar-sticky">
+                    <div class="container-fluid"><div class="col-3">
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        // Seccion Estilos
+        
+            var osm = new L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: 'Powered by SCANTERRA'
+                }
+            );
+
+            var satellite = new L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                maxZoom: 18,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            });
+
+            var carto = new L.tileLayer('http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
+                maxZomm: 25,
+                attribution: '&copy; CartoDB, Mapa por <a href="http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png">CartoDB</a>'
+            });
+
+            var baseLayers = {
+                "OSM": osm,
+                "satellite": satellite,
+                "carto": carto,
+            };
+
+            var map = L.map('mapa', {
+                center: ["-34.603063", "-58.591857"],
+                zoom: 6,
+                layers: [osm]
+            });
+            
+            L.control.layers(baseLayers).addTo(map);
+
+            function estilopersonalizado(feature) {
+                return{
+                    fillColor: "#ff7800",
+                    weight: 2,
+                    opacity: 1,
+                    color: 'white',
+                    dashArray: '3',
+                    fillOpacity: 0.7
+                };
+            }
+
+            function onEachFeature(feature, layer) {
+                var popupContent = 'Campo: ' + feature.properties.Name + "<br/>Area: " + feature.properties.Area +"ha";
+                layer.bindPopup(popupContent);
+                }  
+
+            var capa_centroides =L.geoJSON(centroides,{
+                onEachFeature: onEachFeature
+            }).addTo(map);
+
+            // Agregar escala
+            L.control.scale({
+                imperial: false // Desactiva la escala en millas
+            }).addTo(map);
+        </script>
+</body>
+</html>

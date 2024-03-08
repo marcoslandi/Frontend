@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal con Bootstrap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-fluid, .row {
+            height: 100%;
+            width: 100%;
+            border: 10px;
+           
+        }
+
+        .full-height {
+            height: 100%;
+            
+        }
+
+        .main-content {
+            margin-left: 1%;
+            padding: 1%;
+        }
+
+        .mb-4 {
+            margin-bottom: 10%;
+            padding-bottom: 10%;
+            border: 5px;
+         } /* Margen inferior para separar las divisiones 
+            border: 1px solid #343a40; /* Borde gris oscuro 
+            /*background-color: #212529; /* Fondo gris oscuro 
+            padding: 10px; /* Espaciado interno 
+            
+        }*/
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row full-height">
+            
+            <!-- Barra lateral de tres columnas -->
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3 sidebar-sticky">
+                    <h2>Generador de Estadísticas</h2>
+                    <!-- Seccion de Botones Barra lateral-->
+                    <div class="container-fluid">
+                    
+                        <div id="campos", class="select-container">
+                            <p>Seleccione un campo:
+                                <select>
+                                    <option value="Campo 1">Campo 1</option>
+                                    <option value="Campo 2">Campo 2</option>
+                                    <option value="Campo 3">Campo 3</option>
+                                </select>
+                            </p>
+                        </div>
+
+                        <!-- Boton de Graficar-->
+                        <div class="bg-gray p-8">
+                            <p>
+                                <button class="btn btn-primary">Graficar</button>
+                            </p>
+                        </div>
+
+                         <!-- Boton de Sitios de Muestreo-->
+                         <div class="bg-gray p-8">
+                            <p>
+                                <button class="btn btn-primary">Mostrar Sitios de Muestreo</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Iframe de seis columnas -->
+            <div class="col-md-6 full-height">
+                <div id="visor" class="container-fluid">
+                    <iframe src= Visor.html class="w-100 h-100" frameborder="0"></iframe>
+                </div>
+                
+            </div>
+
+            <!-- Contenido principal de tres columnas -->
+            <div class="col-md-3 full-height bg-light">
+                <div class="container-fluid">
+                    <h2>Resultados</h2>
+
+                    <div class="col-md-3 main-content">
+                        <!-- Recuadro resultados 1 -->
+                        <div class="mb-4">
+                            <h3>Estadísticas básicas</h3>
+                            <p class="mb-4">Contenido de la primera división.</p>
+                        </div>
+        
+                        <!-- Recuadro esultados 2 -->
+                        <div class="mb-4" ></div>
+                            <h3>Que ponemos!!!!</h3>
+                        
+                            <div class="mb-4">
+                                <button type="button" class="btn btn-primary btn-lg btn-block">Exportar</button>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap (opcional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

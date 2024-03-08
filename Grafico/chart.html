@@ -1,0 +1,44 @@
+<! DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Librerias Chart js-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+
+    <body>
+        <canvas> id="myChart" width="400" height="400"</canvas>
+    </body>
+
+    <!--JAVA SCRIPT-->
+    <script>
+        // Datos para el gráfico
+        const data = {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
+            datasets: [{
+                data: [10, 20, 25, 30, 25, 20, 10],
+                fill: false, //No rellenar debajo de la curva
+                borderColor: 'rgb(75, 192, 192)', // Color de la línea
+            }]
+        };
+        
+        // Configuración del gráfico
+        const config = {
+            type: 'line', // Tipo de gráfico
+            data: data, // Datos a utilizar
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true // Empezar el eje Y en 0
+                        }
+                }
+            }
+        };
+        var ctx = document.getElementById("myChart")//.getContext("2d") // Variable que almacena el Canvas
+        //Creación del gráfico
+        var chart = new Chart(ctx, config)
+    </script>
+</html>

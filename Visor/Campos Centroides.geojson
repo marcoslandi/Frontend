@@ -1,0 +1,20 @@
+var centroides = {
+"type": "FeatureCollection",
+"name": "Campos Centroides",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32722" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "alf_19231_cop", "Area": 16.8, "Puntos": 50 }, "geometry": { "type": "Point", "coordinates": [ 248007.040956682729302, 6282697.332238868810236 ] } },
+{ "type": "Feature", "properties": { "Name": "oli_inia_sam", "Area": 40.0, "Puntos": 120 }, "geometry": { "type": "Point", "coordinates": [ 256976.382618839328643, 6305622.967369904741645 ] } },
+{ "type": "Feature", "properties": { "Name": "leo_522_sam", "Area": 12.2, "Puntos": 37 }, "geometry": { "type": "Point", "coordinates": [ 257825.695682652003597, 6304585.719556056894362 ] } },
+{ "type": "Feature", "properties": { "Name": "fer_522_sam", "Area": 11.8, "Puntos": 35 }, "geometry": { "type": "Point", "coordinates": [ 105635.819208293120028, 6468590.054732359014452 ] } },
+{ "type": "Feature", "properties": { "Name": "alf_nvo_cop", "Area": 2.9, "Puntos": 9 }, "geometry": { "type": "Point", "coordinates": [ 248215.11863752186764, 6282734.189834056422114 ] } },
+{ "type": "Feature", "properties": { "Name": "gs3_522_sam", "Area": 20.1, "Puntos": 60 }, "geometry": { "type": "Point", "coordinates": [ 257742.241900624998379, 6361337.528122264891863 ] } },
+{ "type": "Feature", "properties": { "Name": "emi_522_sam", "Area": 19.9, "Puntos": 60 }, "geometry": { "type": "Point", "coordinates": [ 269569.895671894832049, 6384407.142134771682322 ] } },
+{ "type": "Feature", "properties": { "Name": "gs3_mer_sam", "Area": 20.1, "Puntos": 60 }, "geometry": { "type": "Point", "coordinates": [ 256937.894758489506785, 6361415.331643828190863 ] } },
+{ "type": "Feature", "properties": { "Name": "emi_rte_sam", "Area": 5.1, "Puntos": 15 }, "geometry": { "type": "Point", "coordinates": [ 269341.075191389303654, 6384178.939839775674045 ] } },
+{ "type": "Feature", "properties": { "Name": "fer_mer_sam", "Area": 5.4, "Puntos": 16 }, "geometry": { "type": "Point", "coordinates": [ 105644.131051796357497, 6468312.109236013144255 ] } },
+{ "type": "Feature", "properties": { "Name": "zor_19231_sam", "Area": 27.8, "Puntos": 83 }, "geometry": { "type": "Point", "coordinates": [ 236744.693345540872542, 6355395.947335335426033 ] } },
+{ "type": "Feature", "properties": { "Name": "alf_1294_cop", "Area": 2.6, "Puntos": 8 }, "geometry": { "type": "Point", "coordinates": [ 247614.787050390179502, 6282522.646786435507238 ] } },
+{ "type": "Feature", "properties": { "Name": "zor_gur_sam", "Area": 18.0, "Puntos": 54 }, "geometry": { "type": "Point", "coordinates": [ 236574.452392140519805, 6353020.477489160373807 ] } }
+]
+}
