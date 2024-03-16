@@ -31,7 +31,7 @@
         <div class="row">
             
             <!--Columna Inputs-->
-            <div id="Inputs" class="col-3 full-height bg-light">
+            <div id="Inputs" class="col-3 height:100% full-height bg-light">
                 <div class="position-sticky pt-3 sidebar-sticky">
                     <div class="container-fluid">
                         
@@ -61,7 +61,7 @@
                                 <div class="bg-gray p-8">
                                     <!-- Contenido de la segunda fila -->
                                     <p>
-                                        <button class="btn btn-primary">Graficar</button>
+                                        <button class="btn btn-primary" onclick="abrirVentana()">Graficar</button>
                                     </p>
                                 </div>
                             </div>    
@@ -83,19 +83,35 @@
                     </div>
                 </div>
             </div>
-
-                
             <!--Columna del visor-->
-            <div id="mapa" class="col-6 border full-height bg-light">
+            <div id="mapa" class="col-6 border height:100% full-height bg-light">
                 <div class="container-fluid">
                     <div id="mapa" style="width:100%;height:100%;"></div>
                 </div>
             </div>
 
             <!--Columna de Resultados-->
-            <div id="Resultados" class="col-3 border full-height bg-light">
+            <div id="Resultados" class="col-3 border height:100% full-height bg-light">
                 <div class="position-sticky pt-3 sidebar-sticky">
-                    <div class="container-fluid"><div class="col-3">
+                    <div class="container-fluid">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5> Estadísticas Básicas</h5>
+                                <hr>
+                                <canvas id="Estadisticas Basicas"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5> Resultados</h5>
+                                <hr>
+                                <canvas id="Resultados"></canvas>
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-3">
                 </div>
             </div>
         </div>
@@ -104,6 +120,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
     <script type="text/javascript">
+        
+        function abrirVentana() {
+            // Calcula el ancho y alto de la ventana emergente
+            var ancho = window.innerWidth * 0.75;
+            var alto = window.innerHeight * 0.3;
+
+            // Abre una ventana emergente con el tamaño y ubicación deseados
+            var ventana = window.open('chart.html', '', 'width=' + ancho + ',height=' + alto + ',top=50,left=50');
+            ventana.focus();
+            }
+        
+        
         // Seccion Estilos
         
             var osm = new L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
